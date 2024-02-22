@@ -54,13 +54,5 @@ const connect = function () {
 };
 
 
-//to call the connect function
-const client = connect();
-
-
-
 //export the connect function using ES6 Shorthand syntax
-module.exports = {
-  connect,
-  
-};
+module.exports = { connect };

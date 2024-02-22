@@ -1,9 +1,11 @@
 //From client.js, import the connect function using ES6 Shorthand syntax
 
 const { connect } = require("./client");
+const { setupInput } = require("./input");
+
+
 console.log("Connecting ...");
 
-connect;
+const connection = connect();
 
-const { setupInput } = require("./input");
-setupInput;
+setupInput(connection);
