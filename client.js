@@ -1,4 +1,4 @@
-const { CONNREFUSED } = require("dns");
+// const { CONNREFUSED } = require("dns");
 const net = require("net");
 
 // establishes a connection with the game server
@@ -21,6 +21,28 @@ const connect = function () {
     console.log("Successfully connected to the game server");
     //Send the string "Name: ___" to the server, upon connection
     conn.write("Name: LSS");
+
+    //Send the string "Move: " as data to the server via the conn object.
+    //What happens if we send more than one, but delay each of them by about 50ms apart, using setTimeout?
+
+    setTimeout(() => {
+      conn.write("Move: up");
+    }, 50);
+
+    
+    setTimeout(() => {
+      conn.write("Move: down");
+    }, 100);
+
+    
+    setTimeout(() => {
+      conn.write("Move: left");
+    }, 150);
+
+    
+    setTimeout(() => {
+      conn.write("Move: right");
+    }, 200);
   });
 
   //Event handler: For error handling during the connection
@@ -35,7 +57,7 @@ const connect = function () {
 console.log("Connecting ...");
 
 //to call the connect function
-connect();
+const client = connect();
 
 
 
