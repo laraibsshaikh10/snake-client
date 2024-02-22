@@ -24,7 +24,6 @@ const connect = function () {
 
     //Send the string "Move: " as data to the server via the conn object.
     //What happens if we send more than one, but delay each of them by about 50ms apart, using setTimeout?
-
     setTimeout(() => {
       conn.write("Move: up");
     }, 50);
@@ -43,8 +42,12 @@ const connect = function () {
     setTimeout(() => {
       conn.write("Move: right");
     }, 200);
+
+
+
   });
 
+ 
   //Event handler: For error handling during the connection
   conn.on("error", (error) => {
     console.log("Error while connecting:", error);
