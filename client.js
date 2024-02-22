@@ -1,3 +1,4 @@
+const { CONNREFUSED } = require("dns");
 const net = require("net");
 
 // establishes a connection with the game server
@@ -10,10 +11,22 @@ const connect = function () {
   // interpret incoming data as text
   conn.setEncoding("utf8");
 
-  //to handle incoming data and logging it to the player
+  //Event handler: to handle incoming data and logging it to the player
   conn.on("data", (data) => {
     console.log("Data received from server:", data);
   });
+
+  //Event handler: once the client is successfully connected, show the message:
+  conn.on("connect", () => {
+    console.log("Successfully connected to the game server");
+    //Send the string "Name: ___" to the server, upon connection
+    conn.write("Name: LSS");
+  });
+
+  //Event handler: For error handling during the connection
+  conn.on("error", (error) => {
+    console.log("Error while connecting:", error);
+  })
 
   return conn;
 };
@@ -22,17 +35,9 @@ const connect = function () {
 console.log("Connecting ...");
 
 //to call the connect function
-const client = connect();
+connect();
 
-//once the client is connected, show:
-client.on("connect", () => {
-  console.log("Connected to the server");
-});
 
-//For error handling during the connection
-client.on("error", () => {
-  console.log("Error while connecting:", error);
-});
 
 //export the connect function using ES6 Shorthand syntax
 module.exports = {
