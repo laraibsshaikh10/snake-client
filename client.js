@@ -53,8 +53,6 @@ const connect = function () {
   return conn;
 };
 
-//before the connection happens
-console.log("Connecting ...");
 
 //to call the connect function
 const client = connect();
