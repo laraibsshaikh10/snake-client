@@ -1,11 +1,13 @@
 // const { CONNREFUSED } = require("dns");
 const net = require("net");
+const { IP, port } = require("./constants");
 
 // establishes a connection with the game server
 const connect = function () {
   const conn = net.createConnection({
     host: "localhost",
-    port: 50541,
+    port,
+    IP
   });
 
   // interpret incoming data as text
