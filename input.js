@@ -11,6 +11,7 @@ const handleUserInput = function(key) {
   if (key === '\u0003') {
     process.exit();
   }
+  // Use keyboard keys to track snake movements
   if (key === "w") {
     connection.write("Move: up");
   } else if (key === "s") {
@@ -19,6 +20,7 @@ const handleUserInput = function(key) {
     connection.write("Move: left");
   } else if (key === "d") {
     connection.write("Move: right");
+    //to print greetings, use keyboard keys
   } else if (key === "h") {
     connection.write("Say: Hello there!");
   } else if (key === "g") {
