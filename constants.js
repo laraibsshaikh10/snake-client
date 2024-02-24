@@ -1,4 +1,4 @@
-const IP =  "172.24.224.232";
+const IP =  "'::1";
 const port = 50541;
 
 

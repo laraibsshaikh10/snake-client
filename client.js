@@ -2,7 +2,7 @@ const net = require("net");
 const { IP, port } = require("./constants");
 
 // establishes a connection with the game server
-const connect = function () {
+const connect = function() {
   const conn = net.createConnection({
     host: "localhost",
     port,
@@ -52,7 +52,7 @@ const connect = function () {
   //Event handler: For error handling during the connection
   conn.on("error", (error) => {
     console.log("Error while connecting:", error);
-  })
+  });
 
   return conn;
 };

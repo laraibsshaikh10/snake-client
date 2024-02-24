@@ -5,12 +5,12 @@
 
 // Stores the active TCP connection object.
 let connection;
-const handleUserInput = function (key) {
+const handleUserInput = function(key) {
 
   // \u0003 maps to ctrl+c input to exit
   if (key === '\u0003') {
     process.exit();
-  } 
+  }
   if (key === "w") {
     connection.write("Move: up");
   } else if (key === "s") {
@@ -22,16 +22,16 @@ const handleUserInput = function (key) {
   } else if (key === "h") {
     connection.write("Say: Hello there!");
   } else if (key === "g") {
-    connection.write("Say: Good Bye!")
+    connection.write("Say: Good Bye!");
   } else if (key === "n") {
     connection.write("Say: Nice to meet you!");
   } else if (key === "b") {
-    connection.write("Say: See you later!")
+    connection.write("Say: See you later!");
   }
  
 };
 
-const setupInput = function (conn) {
+const setupInput = function(conn) {
   const stdin = process.stdin;
   connection = conn;
   stdin.setRawMode(true);
