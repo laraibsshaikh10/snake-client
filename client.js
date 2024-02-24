@@ -1,4 +1,3 @@
-// const { CONNREFUSED } = require("dns");
 const net = require("net");
 const { IP, port } = require("./constants");
 
